@@ -41,7 +41,7 @@
 
 
       class ExampleWithPerf extends React.Component {
-        componentWillMount() {
+        UNSAFE_componentWillMount() {
           Perf.start();
         }
 
@@ -62,7 +62,7 @@
 					}, 1000)
         }
 
-        componentWillReceiveProps() {
+        UNSAFE_componentWillReceiveProps() {
           Perf.start()
         }
 

@@ -148,7 +148,8 @@ class BaseStyledComponent extends Component<*, BaseState> {
     }
   }
 
-  componentWillMount() {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillMount() {
     const { componentStyle } = this.constructor
     const styledContext = this.context[CHANNEL_NEXT]
 
@@ -188,7 +189,11 @@ class BaseStyledComponent extends Component<*, BaseState> {
     }
   }
 
-  componentWillReceiveProps(nextProps: { theme?: Theme, [key: string]: any }) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps: {
+    theme?: Theme,
+    [key: string]: any,
+  }) {
     // If this is a statically-styled component, we don't need to listen to
     // props changes to update styles
     const { componentStyle } = this.constructor

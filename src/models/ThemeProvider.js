@@ -61,7 +61,8 @@ export default class ThemeProvider extends Component<ThemeProviderProps, void> {
     this.getTheme = this.getTheme.bind(this)
   }
 
-  componentWillMount() {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillMount() {
     // If there is a ThemeProvider wrapper anywhere around this theme provider, merge this theme
     // with the outer theme
     const outerContext = this.context[CHANNEL_NEXT]
@@ -98,7 +99,8 @@ export default class ThemeProvider extends Component<ThemeProviderProps, void> {
     }
   }
 
-  componentWillReceiveProps(nextProps: ThemeProviderProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps: ThemeProviderProps) {
     if (this.props.theme !== nextProps.theme) {
       this.publish(nextProps.theme)
     }

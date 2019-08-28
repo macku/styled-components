@@ -35,7 +35,8 @@ export default class StyleSheetManager extends Component<Props, void> {
     return { [CONTEXT_KEY]: this.sheetInstance }
   }
 
-  componentWillMount() {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillMount() {
     if (this.props.sheet) {
       this.sheetInstance = this.props.sheet
     } else if (this.props.target) {

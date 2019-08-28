@@ -28,7 +28,8 @@ export default (Component: ComponentType<any>) => {
     state: { theme?: ?Object } = EMPTY_OBJECT
     unsubscribeId: number = -1
 
-    componentWillMount() {
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillMount() {
       const { defaultProps } = this.constructor
       const styledContext = this.context[CHANNEL_NEXT]
       const themeProp = determineTheme(this.props, undefined, defaultProps)
@@ -52,7 +53,8 @@ export default (Component: ComponentType<any>) => {
       }
     }
 
-    componentWillReceiveProps(nextProps: {
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillReceiveProps(nextProps: {
       theme?: ?Object,
       [key: string]: any,
     }) {

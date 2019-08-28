@@ -29,7 +29,7 @@ describe('ThemeProvider', () => {
     const innerTheme = { secondary: 'black' }
     // Setup Child
     class Child extends React.Component {
-      componentWillMount() {
+      UNSAFE_componentWillMount() {
         this.context[CHANNEL_NEXT].subscribe(theme => {
           expect(theme).toEqual({ ...outerTheme, ...innerTheme })
           done()
@@ -56,7 +56,7 @@ describe('ThemeProvider', () => {
     const innerTheme = { secondary: 'black' }
     // Setup Child
     class Child extends React.Component {
-      componentWillMount() {
+      UNSAFE_componentWillMount() {
         this.context[CHANNEL_NEXT].subscribe(theme => {
           expect(theme).toEqual({ ...outerestTheme, ...outerTheme, ...innerTheme })
           done()
@@ -87,7 +87,7 @@ describe('ThemeProvider', () => {
     let childRendered = 0
     // Setup Child
     class Child extends React.Component {
-      componentWillMount() {
+      UNSAFE_componentWillMount() {
         this.context[CHANNEL_NEXT].subscribe(theme => {
           // eslint-disable-next-line react/prop-types
           expect(theme).toEqual(themes[this.props.shouldHaveTheme])
@@ -125,7 +125,7 @@ describe('ThemeProvider', () => {
 
     // Setup Child
     class Child extends React.Component {
-      componentWillMount() {
+      UNSAFE_componentWillMount() {
         this.context[CHANNEL_NEXT].subscribe(receivedTheme => {
           actual = receivedTheme
         })
