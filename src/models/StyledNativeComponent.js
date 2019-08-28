@@ -78,7 +78,8 @@ class BaseStyledNativeComponent extends Component<*, State> {
     return inlineStyle.generateStyleObject(executionContext)
   }
 
-  componentWillMount() {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillMount() {
     // If there is a theme in the context, subscribe to the event emitter. This
     // is necessary due to pure components blocking context updates, this circumvents
     // that by updating when an event is emitted
@@ -104,7 +105,11 @@ class BaseStyledNativeComponent extends Component<*, State> {
     }
   }
 
-  componentWillReceiveProps(nextProps: { theme?: Theme, [key: string]: any }) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps: {
+    theme?: Theme,
+    [key: string]: any,
+  }) {
     this.setState(prevState => {
       const theme = determineTheme(
         nextProps,
